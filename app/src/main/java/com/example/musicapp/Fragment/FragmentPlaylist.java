@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,10 +28,15 @@ import retrofit2.Response;
 public class FragmentPlaylist extends Fragment {
 
     View view;
+    ListView lvplaylist;
+    TextView txttitleplaylist, txtviewxemthemplaylist;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_playlist, container, false);
+        lvplaylist = view.findViewById(R.id.listviewplaylist);
+        txttitleplaylist = view.findViewById(R.id.textviewtitleplaylist);
+        txtviewxemthemplaylist = view.findViewById(R.id.textviewviewmoreplaylist);
         GetData();
         return view;
     }
