@@ -81,7 +81,7 @@ public class FragmentBanner extends Fragment {
 
             @Override
             public void onFailure(Call<List<QuangCao>> call, Throwable t) {
-                Log.d("BBB", "fail");
+
 
             }
         });
