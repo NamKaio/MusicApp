@@ -20,6 +20,13 @@
             android:id="@+id/fragmentplaylist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <fragment
+            android:name="com.example.musicapp.Fragment.FragmentTheLoaiChuDeToday"
+            android:id="@+id/fragment_theloai_chude_today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </ScrollView>
