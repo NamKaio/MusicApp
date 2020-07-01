@@ -2,6 +2,7 @@ package com.example.musicapp.Services;
 
 import android.provider.MediaStore;
 
+import com.example.musicapp.Model.ChuDeTheLoai;
 import com.example.musicapp.Model.Playlist;
 import com.example.musicapp.Model.QuangCao;
 
@@ -17,4 +18,7 @@ public interface DataService {
 
     @GET("playlistforcurrentday.php")
     Call<List<Playlist>> GetPlaylistCurrentDay();
+
+    @GET("chudevatheloai.php")
+    Call<ChuDeTheLoai> GetCategoryMusic();
 }
