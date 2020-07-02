@@ -23,8 +23,7 @@ public class PlaylistAdapter extends ArrayAdapter<Playlist> {
     }
     class ViewHolder {
         TextView txttenplaylist;
-        ImageView imgbackground;
-        ImageView imgplaylist;
+        ImageView imgbackground, imgplaylist;
     }
 
     @NonNull
