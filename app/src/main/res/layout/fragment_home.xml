@@ -33,6 +33,12 @@
             android:name="com.example.musicapp.Fragment.FragmentAlbumHot"
             android:id="@+id/fragment_album_hot"/>
 
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.example.musicapp.Fragment.FragmentBaiHatHot"
+            android:id="@+id/fragment_bai_hat_hot"/>
+
 
 
     </LinearLayout>

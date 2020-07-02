@@ -3,6 +3,7 @@ package com.example.musicapp.Services;
 import android.provider.MediaStore;
 
 import com.example.musicapp.Model.Album;
+import com.example.musicapp.Model.BaiHat;
 import com.example.musicapp.Model.ChuDeTheLoai;
 import com.example.musicapp.Model.Playlist;
 import com.example.musicapp.Model.QuangCao;
@@ -24,4 +25,9 @@ public interface DataService {
 
     @GET("albumhot.php")
     Call<List<Album>> GetAlbumHot();
+
+    @GET("baihatduocthich.php")
+    Call<List<BaiHat>> GetBaiHatHot();
+
+
 }
