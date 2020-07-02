@@ -5,16 +5,28 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.musicapp.Model.QuangCao;
 import com.example.musicapp.R;
+import com.example.musicapp.Services.APIService;
+import com.example.musicapp.Services.DataService;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DanhsachbaihatActivity extends AppCompatActivity {
 
@@ -23,6 +35,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerViewdanhsachbaihat;
     FloatingActionButton floatingActionButton;
+    ImageView imgdanhsachcakhuc;
 
     QuangCao quangCao;
     @Override
@@ -32,7 +45,32 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         DateIntent();
         anhxa();
 //        init();
+//        if (quangCao != null && !quangCao.getTenBaiHat().equals("")) {
+//            setValueInView();
+//            getDataQuangCao(quangCao.getIdQuangCao());
+//        }
     }
+
+//    private void setValueInView(String ten, String hinh) {
+//        collapsingToolbarLayout.setTitle(ten);
+//        try {
+//            URL url = new URL(hinh);
+//            Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                collapsingToolbarLayout.setBackground(bitmapDrawable);
+//            }
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        Picasso.with(this).load(hinh).into(imgdanhsachcakhuc);
+//    }
+
+//    private void getDataQuangCao(String idquangcao) {
+//        DataService dataService = APIService.getService();
+//    }
 
 //    private void init() {
 //        setSupportActionBar(toolbar);
@@ -53,6 +91,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbardanhsach);
         recyclerViewdanhsachbaihat = findViewById(R.id.recycleviewdanhsachbaihat);
         floatingActionButton = findViewById(R.id.floatingactionbutton);
+        imgdanhsachcakhuc = findViewById(R.id.imageviewdanhsachcakhuc);
     }
 
     private void DateIntent() {
