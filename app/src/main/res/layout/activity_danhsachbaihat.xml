@@ -35,7 +35,9 @@
                 android:layout_height="75dp"
                 android:elevation="6dp"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"></androidx.appcompat.widget.Toolbar>
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            </androidx.appcompat.widget.Toolbar>
 
             <ImageView
                 android:id="@+id/imageviewdanhsachcakhuc"

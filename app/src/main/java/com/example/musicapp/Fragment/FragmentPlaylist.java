@@ -1,11 +1,11 @@
 package com.example.musicapp.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.musicapp.Activity.DanhsachbaihatActivity;
 import com.example.musicapp.Adapter.PlaylistAdapter;
 import com.example.musicapp.Model.Playlist;
 import com.example.musicapp.R;
@@ -50,6 +51,7 @@ public class FragmentPlaylist extends Fragment {
     private void GetData() {
         DataService dataService = APIService.getService();
         Call<List<Playlist>> callback = dataService.GetPlaylistCurrentDay();
+
         callback.enqueue(new Callback<List<Playlist>>() {
             @Override
             public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
@@ -57,6 +59,16 @@ public class FragmentPlaylist extends Fragment {
                 playlistAdapter = new PlaylistAdapter(getActivity(), android.R.layout.simple_list_item_1, mangplaylist);
                 lvplaylist.setAdapter(playlistAdapter);
                 setListViewHeightBasedOnChildren(lvplaylist);
+
+                lvplaylist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+                        Intent intent = new Intent(getActivity(), DanhsachbaihatActivity.class);
+                        intent.putExtra("item", mangplaylist.get(position));
+                        startActivity(intent);
+
+                    }
+                });
             }
 
             @Override
@@ -65,6 +77,7 @@ public class FragmentPlaylist extends Fragment {
             }
         });
     }
+
     public void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
@@ -77,7 +90,7 @@ public class FragmentPlaylist extends Fragment {
         for (int i = 0; i < listAdapter.getCount(); i++) {
             View listItem = listAdapter.getView(i, null, listView);
 
-            if(listItem != null){
+            if (listItem != null) {
                 // This next line is needed before you call measure or else you won't get measured height at all. The listitem needs to be drawn first to know the height.
                 listItem.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
                 listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
