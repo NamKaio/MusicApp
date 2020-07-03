@@ -66,7 +66,6 @@ public class FragmentBanner extends Fragment {
                 runnable = new Runnable() {
                     @Override
                     public void run() {
-                        Log.d("AAA", "fail");
                         currentItem = viewPager.getCurrentItem();
                         currentItem++;
                         if (currentItem >= viewPager.getAdapter().getCount()) {

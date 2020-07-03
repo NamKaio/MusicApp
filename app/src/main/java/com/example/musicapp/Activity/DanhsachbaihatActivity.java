@@ -157,7 +157,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
 
             }
             if (intent.hasExtra("item")){
-                playlist = (Playlist) intent.getSerializableExtra("itemplaylist");
+                playlist = (Playlist) intent.getSerializableExtra("item");
                 Toast.makeText(this, playlist.getTen(), Toast.LENGTH_SHORT).show();
             }
         }
