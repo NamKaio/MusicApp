@@ -1,0 +1,8 @@
+public interface ItemClickListener {
+thêm void setOnItemClick(ItemClickListener onItemClick) {
+            this.itemClickListener =  onItemClick;
+        }
+            itemView = itemView.findViewById(R.id.cvListSongView);
+
+            itemView.setOnClickListener(this);
+
