@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.DanhsachcacplaylistActivity"></activity>
+        <activity android:name=".Activity.DanhSachTheLoaiTheoChuDeActivity"></activity>
+        <activity android:name=".Activity.DanhSachTatCaChuDeActivity" />
+        <activity android:name=".Activity.DanhsachcacplaylistActivity" />
         <activity android:name=".Activity.DanhsachbaihatActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>

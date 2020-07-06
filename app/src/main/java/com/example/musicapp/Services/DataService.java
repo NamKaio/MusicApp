@@ -4,6 +4,7 @@ import android.provider.MediaStore;
 
 import com.example.musicapp.Model.Album;
 import com.example.musicapp.Model.BaiHat;
+import com.example.musicapp.Model.ChuDe;
 import com.example.musicapp.Model.ChuDeTheLoai;
 import com.example.musicapp.Model.Playlist;
 import com.example.musicapp.Model.QuangCao;
@@ -33,6 +34,12 @@ public interface DataService {
     @GET("baihatduocthich.php")
     Call<List<BaiHat>> GetBaiHatHot();
 
+    @GET("danhsachplaylist.php")
+    Call<List<Playlist>> GetDanhSachPlaylist();
+
+    @GET("tatcachude.php")
+    Call<List<ChuDe>> GetDanhSachAllChuDe();
+
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHat>> GetDanhSachBaiHatTheoQuangCao(@Field("idquangcao") String idquangcao);
@@ -40,5 +47,10 @@ public interface DataService {
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHat>> GetDanhSachBaiHatTheoPlaylist(@Field("idplaylist") String idplaylist);
+
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<BaiHat>> GetDanhSachBaiHatTheoTheLoai(@Field("idtheloai") String idtheloai);
 
 }
