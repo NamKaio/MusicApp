@@ -1,12 +1,13 @@
 package com.example.musicapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+
 
 import com.example.musicapp.R;
 
@@ -14,6 +15,7 @@ public class DanhsachcacplaylistActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     RecyclerView recyclerViewdanhsachcacplaylist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +25,9 @@ public class DanhsachcacplaylistActivity extends AppCompatActivity {
     }
 
     private void init() {
-        //getSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Play lists");
+        getSupportActionBar().setTitle("Playlists");
         toolbar.setTitleTextColor(getResources().getColor(R.color.mautim));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
