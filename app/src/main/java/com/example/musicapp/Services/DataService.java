@@ -8,8 +8,10 @@ import com.example.musicapp.Model.ChuDe;
 import com.example.musicapp.Model.ChuDeTheLoai;
 import com.example.musicapp.Model.Playlist;
 import com.example.musicapp.Model.QuangCao;
+import com.example.musicapp.Model.TheLoai;
 
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -40,6 +42,9 @@ public interface DataService {
     @GET("tatcachude.php")
     Call<List<ChuDe>> GetDanhSachAllChuDe();
 
+    @GET("tatcaalbum.php")
+    Call<List<Album>> GetDanhSachAllAlbum();
+
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHat>> GetDanhSachBaiHatTheoQuangCao(@Field("idquangcao") String idquangcao);
@@ -52,5 +57,17 @@ public interface DataService {
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
     Call<List<BaiHat>> GetDanhSachBaiHatTheoTheLoai(@Field("idtheloai") String idtheloai);
+
+    @FormUrlEncoded
+    @POST("theloaitheochude.php")
+    Call<List<TheLoai>> GetTheLoaiTheoChuDe(@Field("idchude") String idchude);
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Album>> GetDanhSachBaiHatTheoAlbum(@Field("idalbum") String idalbum);
+
+    @FormUrlEncoded
+    @POST("updatelike.php")
+    Call<String> GetUpdateLike(@Field("luotthich") String luotthich, @Field("idbaihat") String idbaihat);
 
 }
