@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.musicapp.Activity.DanhSachTatCaChuDeActivity;
+import com.example.musicapp.Activity.DanhSachTheLoaiTheoChuDeActivity;
 import com.example.musicapp.Activity.DanhsachbaihatActivity;
 import com.example.musicapp.Model.ChuDe;
 import com.example.musicapp.Model.ChuDeTheLoai;
@@ -86,6 +87,15 @@ public class FragmentTheLoaiChuDeToday extends Fragment {
                     cardView.setLayoutParams(layoutParams);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+                    final int finalI = i;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity(), DanhSachTheLoaiTheoChuDeActivity.class);
+                            intent.putExtra("chude", chuDeArrayList.get(finalI));
+                            startActivity(intent);
+                        }
+                    });
 
                 }
 

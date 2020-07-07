@@ -12,62 +12,58 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musicapp.Activity.DanhsachbaihatActivity;
-import com.example.musicapp.Model.Album;
+import com.example.musicapp.Model.TheLoai;
 import com.example.musicapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> {
+public class DanhSachTheLoaiTheoChuDeAdapter extends RecyclerView.Adapter<DanhSachTheLoaiTheoChuDeAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<Album> albumArrayList;
+    ArrayList<TheLoai> theLoaiArrayList;
 
-    public AlbumAdapter(Context context, ArrayList<Album> albumArrayList) {
+    public DanhSachTheLoaiTheoChuDeAdapter(Context context, ArrayList<TheLoai> theLoaiArrayList) {
         this.context = context;
-        this.albumArrayList = albumArrayList;
+        this.theLoaiArrayList = theLoaiArrayList;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_album, parent, false);
-
+        View view = inflater.inflate(R.layout.dong_theloai_theo_chude, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Album album = albumArrayList.get(position);
-        holder.txtAlbum.setText(album.getTenAlBum());
-        holder.txtCaSiAlbum.setText(album.getTenCaSiAlbum());
-        Picasso.with(context).load(album.getHinhAlbum()).into(holder.imageViewAlbum);
+        TheLoai theLoai = theLoaiArrayList.get(position);
+        Picasso.with(context).load(theLoai.getHinhTheLoai()).into(holder.imgtentheloaitheochude);
+        holder.txttentheloai.setText(theLoai.getTenTheLoai());
+
     }
 
     @Override
     public int getItemCount() {
-        return albumArrayList.size();
+        return theLoaiArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageViewAlbum;
-        TextView txtAlbum, txtCaSiAlbum;
-
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgtentheloaitheochude;
+        TextView txttentheloai;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageViewAlbum = itemView.findViewById(R.id.imageviewalbum);
-            txtAlbum = itemView.findViewById(R.id.textviewalbum);
-            txtCaSiAlbum = itemView.findViewById(R.id.textviewtencasialbum);
+            imgtentheloaitheochude = itemView.findViewById(R.id.imageviewtheloaitheochude);
+            txttentheloai = itemView.findViewById(R.id.textviewtentheloaitheochude);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("album", albumArrayList.get(getAdapterPosition()));
+                    intent.putExtra("idtheloai", theLoaiArrayList.get(getAdapterPosition()));
                     context.startActivity(intent);
                 }
             });
-
         }
     }
 }

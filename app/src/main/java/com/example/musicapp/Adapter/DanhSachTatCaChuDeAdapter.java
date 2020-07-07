@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class DanhSachTatCaChuDeAdapter extends RecyclerView.Adapter<DanhSachTatCaChuDeAdapter.ViewHolder>{
+public class DanhSachTatCaChuDeAdapter extends RecyclerView.Adapter<DanhSachTatCaChuDeAdapter.ViewHolder> {
 
     Context context;
     ArrayList<ChuDe> chuDeArrayList;
@@ -57,7 +57,7 @@ public class DanhSachTatCaChuDeAdapter extends RecyclerView.Adapter<DanhSachTatC
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhSachTheLoaiTheoChuDeActivity.class);
-                    intent.putExtra("chude", chuDeArrayList.get(getPosition()));
+                    intent.putExtra("chude", chuDeArrayList.get(getAdapterPosition()));
                     context.startActivity(intent);
                 }
             });
